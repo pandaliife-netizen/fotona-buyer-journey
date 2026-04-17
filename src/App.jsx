@@ -13,12 +13,12 @@ const BORDER = "rgba(255,255,255,0.12)";
 
 const DEVICES = {
   timewalkerPro: {
-    name: "Fotona TimeWalker® Pro",
+    name: "Fotona TimeWalker® Fotona4D® Pro",
     tagline: "Full-Access Branded Facial Protocol Platform",
     badge: "Advanced · Most Popular",
     cost: 124950,
     treatments: ["Fotona4D®","SmoothEye®","LipLase®","VectorLift®","Fotona4D®MEN","EndoTight™","NightLase®","SmoothLase®"],
-    description: "The TimeWalker® Pro delivers full access to Fotona's signature branded facial protocols — the gold standard for comprehensive rejuvenation without injectables, built for practices ready to lead in aesthetics.",
+    description: "The TimeWalker® Fotona4D® Pro delivers full access to Fotona's signature branded facial protocols — the gold standard for comprehensive facial rejuvenation without injectables, built for practices ready to lead in aesthetics.",
     fits: ["Maximizes revenue per patient with Fotona's exclusive branded protocols","Differentiates your practice with treatment names patients actively search for","Minimal consumables — strong ROI from day one"],
     paybackMonths: [10, 20],
   },
