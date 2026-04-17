@@ -12,84 +12,97 @@ const FAINT = "rgba(255,255,255,0.05)";
 const BORDER = "rgba(255,255,255,0.12)";
 
 const DEVICES = {
-  timewalker: {
-    name: "Fotona TimeWalker® Fotona4D® Pro",
-    tagline: "Next-Generation Aesthetic Laser Technology",
-    badge: "Flagship Aesthetic",
-    treatments: ["Fotona4D® Full-Face Rejuvenation","SmoothEye®","SmoothLase®","SMOOTH® Skin Tightening","Fractional Resurfacing","Pigmentation & Vascular","Body Contouring"],
-    description: "The TimeWalker® Fotona4D® Pro delivers dual-wavelength Er:YAG + Nd:YAG performance across four sequential treatment modes — the gold standard for comprehensive facial rejuvenation without injectables.",
-    fits: ["Maximizes revenue per patient with multi-mode treatments","Differentiates your practice with exclusive Fotona4D® branding","Minimal consumables — strong ROI from day one"],
-    priceRange: [500, 1400],
+  timewalkerPro: {
+    name: "Fotona TimeWalker® Pro",
+    tagline: "Full-Access Branded Facial Protocol Platform",
+    badge: "Advanced · Most Popular",
+    cost: 124950,
+    treatments: ["Fotona4D®","SmoothEye®","LipLase®","VectorLift®","Fotona4D®MEN","EndoTight™","NightLase®","SmoothLase®"],
+    description: "The TimeWalker® Pro delivers full access to Fotona's signature branded facial protocols — the gold standard for comprehensive rejuvenation without injectables, built for practices ready to lead in aesthetics.",
+    fits: ["Maximizes revenue per patient with Fotona's exclusive branded protocols","Differentiates your practice with treatment names patients actively search for","Minimal consumables — strong ROI from day one"],
     paybackMonths: [10, 20],
   },
-  spDynamis: {
-    name: "Fotona SP Dynamis Max",
-    tagline: "One Powerful Device, Unlimited Potential",
-    badge: "New · Multi-Specialty",
-    treatments: ["TightSculpting®","NightLase®","HairRestart®","Acne & Scar Treatment","Onychomycosis","Spider Vein Removal","StarFormer® Synergy"],
-    description: "The SP Dynamis Max is Fotona's most versatile platform — combining Er:YAG and Nd:YAG in a single high-power chassis built for practices that want to expand across multiple specialties from one device.",
-    fits: ["Single platform covers aesthetics, wellness, and medical indications","High-power output supports faster treatment protocols","Designed for growing practices adding new revenue streams quickly"],
-    priceRange: [600, 1600],
+  timewalkerMax: {
+    name: "Fotona TimeWalker® Max",
+    tagline: "Flagship Aesthetics Platform for High-Volume Practices",
+    badge: "Elite · Primary Recommendation",
+    cost: 149900,
+    treatments: ["Fotona4D®","TightSculpting®","SmoothEye®","LipLase®","TensorTight®","NightLase®","VectorLift®","SmoothLase®"],
+    description: "The TimeWalker® Max is the elite flagship for established aesthetics practices — enabling treatment layering, bundling, and multi-service growth at the highest level of Fotona performance.",
+    fits: ["Broad premium aesthetic offerings across face and body","Enable treatment layering and bundling for higher revenue per patient","Positions your practice as the premium aesthetics destination in your market"],
     paybackMonths: [8, 18],
   },
-  starwalker: {
-    name: "Fotona StarWalker® MaQX",
-    tagline: "Unmatched Q-Switched Pulse Energy",
-    badge: "Pigment & Tattoo",
-    treatments: ["Tattoo Removal","Pigment Lesion Treatment","QX MAX Skin Rejuvenation","Melasma","Birthmark Removal","PICO+ Fractional","Nail Fungus"],
-    description: "The StarWalker® MaQX delivers the highest Q-switched pulse energy available — four operating modes including PICO+ that positions your practice at the forefront of pigment and laser tattoo removal.",
-    fits: ["Command premium pricing for tattoo removal — consistently high demand","Multi-mode platform reduces per-treatment competition","Low consumable cost drives exceptional margin per session"],
-    priceRange: [350, 900],
-    paybackMonths: [12, 22],
+  spDynamisMax: {
+    name: "Fotona SP Dynamis Max",
+    tagline: "High-Capability Elite Platform for Body & Face",
+    badge: "Elite · Body Focus",
+    cost: 189034,
+    treatments: ["Fotona4D®","TightSculpting®","SmoothEye®","LipLase®","TensorTight®","NightLase®","Acne Scar Revision","Hair Reduction / Removal"],
+    description: "The SP Dynamis Max brings elite dual-wavelength output to practices with strong body treatment demand — the highest-capability platform for providers who want to cover both facial and body indications at full power.",
+    fits: ["Elite body contouring and facial rejuvenation from a single device","High-power output supports faster, more effective treatment protocols","Built for practices with strong patient demand across multiple categories"],
+    paybackMonths: [9, 19],
   },
-  starformer: {
-    name: "Fotona StarFormer® Pro",
-    tagline: "One Device, Multiple Solutions",
-    badge: "Body · Muscle",
-    treatments: ["MuscleSculpt®","Pelvic Floor Restoration","TeslaFormer® Synergy","Body Contouring","Post-Partum Recovery","Core Strengthening","Muscle Re-Education"],
-    description: "The StarFormer® Pro harnesses functional magnetic stimulation to build and restore muscle — opening a cash-pay body contouring and wellness category that complements any laser aesthetic practice.",
-    fits: ["Tap into a rapidly growing non-invasive body category","No consumables, no injectables — high-margin cash-pay revenue","Expands your practice to wellness and rehabilitation demographics"],
-    priceRange: [400, 1000],
-    paybackMonths: [10, 16],
+  starwalkerPQX: {
+    name: "Fotona StarWalker® PQX",
+    tagline: "Specialist Resurfacing & Pigmentation Platform",
+    badge: "Elite · Pigment Specialist",
+    cost: 179000,
+    treatments: ["Acne Scar Revision","Facial Vascular Lesion Removal","Hair Reduction / Removal","LipLase®","FracRevive™","FracTAT®"],
+    description: "The StarWalker® PQX delivers advanced resurfacing and pigmentation treatments — a specialist platform that commands premium pricing and creates a clearly differentiated aesthetic offering.",
+    fits: ["Command premium pricing for resurfacing and pigmentation — high-demand treatments","Clearly differentiated offering that sets your practice apart from competitors","Low consumable cost drives exceptional margin per session"],
+    paybackMonths: [12, 22],
   },
 };
 
-const TREATMENT_OPTIONS = [
-  { label: "Fotona4D® Facial Rejuvenation", priceRange: [800, 1400] },
-  { label: "SmoothEye® / Periorbital", priceRange: [400, 700] },
-  { label: "Laser Skin Tightening", priceRange: [500, 1000] },
-  { label: "Fractional Resurfacing", priceRange: [600, 1200] },
-  { label: "TightSculpting® Body", priceRange: [700, 1400] },
-  { label: "Tattoo / Pigment Removal", priceRange: [300, 800] },
-  { label: "NightLase® Snore Reduction", priceRange: [400, 700] },
-  { label: "HairRestart® Hair Restoration", priceRange: [500, 900] },
-  { label: "Body Contouring / MuscleSculpt®", priceRange: [500, 1000] },
-  { label: "Acne & Scar Treatment", priceRange: [300, 700] },
-];
+const TREATMENT_PRICES = {
+  "Fotona4D®": [300, 800],
+  "SmoothEye®": [250, 600],
+  "LipLase®": [200, 500],
+  "NightLase®": [600, 1200],
+  "SmoothLase®": [250, 700],
+  "TightSculpting®": [500, 1500],
+  "TensorTight®": [300, 900],
+  "VectorLift®": [400, 900],
+  "Fotona4D®MEN": [300, 800],
+  "EndoTight™": [300, 800],
+  "Acne Scar Revision": [300, 900],
+  "Hair Reduction / Removal": [150, 500],
+  "FracRevive™": [300, 900],
+  "FracTAT®": [250, 800],
+  "Facial Vascular Lesion Removal": [200, 700],
+};
+
+const TREATMENT_OPTIONS = Object.entries(TREATMENT_PRICES).map(([label, priceRange]) => ({ label, priceRange }));
 
 function recommend(sel) {
   const { practiceType, growthGoals = [], barriers = [], stage } = sel;
-  const s = { timewalker:0, spDynamis:0, starwalker:0, starformer:0 };
-  if (practiceType==="Med Spa") { s.timewalker+=3; s.spDynamis+=2; }
-  if (practiceType==="Dermatology") { s.starwalker+=3; s.timewalker+=2; }
-  if (practiceType==="Plastic Surgery") { s.timewalker+=3; s.spDynamis+=1; }
-  if (practiceType==="Wellness / Anti-Aging") { s.starformer+=3; s.spDynamis+=2; }
-  if (practiceType==="Multi-Specialty Aesthetic Practice") { s.spDynamis+=4; s.timewalker+=1; }
+  const s = { timewalkerPro:0, timewalkerMax:0, spDynamisMax:0, starwalkerPQX:0 };
+
+  if (practiceType === "Med Spa") { s.timewalkerPro += 3; s.timewalkerMax += 2; }
+  if (practiceType === "Dermatology") { s.starwalkerPQX += 3; s.timewalkerPro += 2; }
+  if (practiceType === "Plastic Surgery") { s.timewalkerMax += 3; s.spDynamisMax += 2; }
+  if (practiceType === "Wellness / Anti-Aging") { s.timewalkerPro += 2; s.spDynamisMax += 1; }
+  if (practiceType === "Multi-Specialty Aesthetic Practice") { s.spDynamisMax += 3; s.timewalkerMax += 2; }
+
   growthGoals.forEach(g => {
-    if (g==="Add new high-value treatments") { s.spDynamis+=2; s.timewalker+=2; }
-    if (g==="Differentiate from competitors") { s.timewalker+=3; s.starwalker+=2; }
-    if (g==="Increase patient volume") { s.spDynamis+=3; }
-    if (g==="Expand premium offerings") { s.timewalker+=3; }
-    if (g==="Improve revenue per patient") { s.timewalker+=3; s.starwalker+=2; }
+    if (g === "Add new high-value treatments") { s.spDynamisMax += 2; s.timewalkerPro += 2; }
+    if (g === "Differentiate from competitors") { s.timewalkerMax += 3; s.starwalkerPQX += 2; }
+    if (g === "Increase patient volume") { s.spDynamisMax += 3; s.timewalkerPro += 1; }
+    if (g === "Expand premium offerings") { s.timewalkerMax += 3; }
+    if (g === "Improve revenue per patient") { s.timewalkerPro += 3; s.starwalkerPQX += 2; }
   });
+
   barriers.forEach(b => {
-    if (b==="Concerned about cost / ROI") { s.starformer+=2; s.spDynamis+=1; }
-    if (b==="Need stronger treatment differentiation") { s.timewalker+=3; s.starwalker+=2; }
+    if (b === "Concerned about cost / ROI") { s.timewalkerPro += 2; }
+    if (b === "Need stronger treatment differentiation") { s.timewalkerMax += 2; s.starwalkerPQX += 3; }
+    if (b === "Unsure which system fits best") { s.timewalkerPro += 2; }
   });
-  if (stage==="Early growth") { s.spDynamis+=2; s.starformer+=2; }
-  if (stage==="Expanding services") { s.spDynamis+=3; s.timewalker+=1; }
-  if (stage==="Established and optimizing") { s.timewalker+=3; s.starwalker+=2; }
-  return DEVICES[Object.entries(s).sort((a,b)=>b[1]-a[1])[0][0]];
+
+  if (stage === "Early growth") { s.timewalkerPro += 3; }
+  if (stage === "Expanding services") { s.spDynamisMax += 2; s.timewalkerPro += 2; }
+  if (stage === "Established and optimizing") { s.timewalkerMax += 3; s.starwalkerPQX += 2; }
+
+  return DEVICES[Object.entries(s).sort((a, b) => b[1] - a[1])[0][0]];
 }
 
 const TERRITORIES = {
@@ -98,6 +111,7 @@ const TERRITORIES = {
   GA:"Southeast — Diana Ruiz", CO:"Mountain West — Sarah Chen", AZ:"Southwest — Marcus Webb",
   default:"National Accounts — Jeremy Alcott",
 };
+
 const US_STATES = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
 
 const STEPS = [
@@ -116,6 +130,13 @@ const STEPS = [
 const redBtn = (extra={}) => ({ background:RED, color:WHITE, border:"none", padding:"12px 28px", fontSize:11, letterSpacing:"0.16em", fontFamily:"'Helvetica Neue',Arial,sans-serif", textTransform:"uppercase", cursor:"pointer", fontWeight:600, ...extra });
 const outlineBtn = (extra={}) => ({ background:"transparent", color:WHITE, border:`1px solid ${BORDER}`, padding:"12px 28px", fontSize:11, letterSpacing:"0.14em", fontFamily:"'Helvetica Neue',Arial,sans-serif", textTransform:"uppercase", cursor:"pointer", ...extra });
 const eyebrow = { fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, letterSpacing:"0.35em", color:MID, textTransform:"uppercase", marginBottom:16 };
+
+const money = v => new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number.isFinite(v)?v:0);
+
+function monthlyPayment(cost, rate) {
+  const r = rate / 12;
+  return cost * (r * Math.pow(1+r,60)) / (Math.pow(1+r,60)-1);
+}
 
 function PageHeader({ onReset }) {
   return (
@@ -321,30 +342,39 @@ function Recommendation({ device, selections, onROI, onContact, onReset }) {
 }
 
 function ROIExplorer({ device, selections, onCapture, onContact, onBack }) {
-  const [patientsPerWeek, setPatientsPerWeek] = useState(80);
-  const [avgPrice, setAvgPrice] = useState(600);
+  const [patientsPerWeek, setPatientsPerWeek] = useState(42);
   const [adoptionRate, setAdoptionRate] = useState(4);
   const [selectedTreatments, setSelectedTreatments] = useState([]);
-  const [manualPrice, setManualPrice] = useState(false);
+  const [treatmentPrices, setTreatmentPrices] = useState({});
+  const [financingRate, setFinancingRate] = useState(7);
 
   const toggleTreatment = (label) => {
-    setManualPrice(false);
-    setSelectedTreatments(prev => prev.includes(label) ? prev.filter(t=>t!==label) : [...prev, label]);
+    setSelectedTreatments(prev => {
+      const next = prev.includes(label) ? prev.filter(t=>t!==label) : [...prev, label];
+      const newPrices = {...treatmentPrices};
+      next.forEach(t => { if (!newPrices[t]) { const r = TREATMENT_PRICES[t]||[300,700]; newPrices[t]={low:r[0],high:r[1]}; } });
+      Object.keys(newPrices).forEach(k => { if (!next.includes(k)) delete newPrices[k]; });
+      setTreatmentPrices(newPrices);
+      return next;
+    });
   };
 
-  useEffect(() => {
-    if (!manualPrice && selectedTreatments.length > 0) {
-      const selected = TREATMENT_OPTIONS.filter(t => selectedTreatments.includes(t.label));
-      const avg = selected.reduce((sum,t) => sum + (t.priceRange[0]+t.priceRange[1])/2, 0) / selected.length;
-      setAvgPrice(Math.round(avg));
-    }
-  }, [selectedTreatments, manualPrice]);
+  const activeTreatments = selectedTreatments.length > 0 ? selectedTreatments : [device.treatments[0]];
+  const annualPtsLow = patientsPerWeek * 52 * (adoptionRate / 100) * 0.8;
+  const annualPtsHigh = patientsPerWeek * 52 * (adoptionRate / 100) * 1.2;
 
-  const monthlyPatients = Math.round(patientsPerWeek * 4.33 * (adoptionRate / 100));
-  const monthlyRev = monthlyPatients * avgPrice;
-  const annualRev = monthlyRev * 12;
+  let monthlyRevLow = 0, monthlyRevHigh = 0;
+  activeTreatments.forEach(t => {
+    const p = treatmentPrices[t] || { low:(TREATMENT_PRICES[t]||[300,700])[0], high:(TREATMENT_PRICES[t]||[300,700])[1] };
+    monthlyRevLow  += (annualPtsLow  / 12) * p.low;
+    monthlyRevHigh += (annualPtsHigh / 12) * p.high;
+  });
+
+  const pmtLow  = monthlyPayment(device.cost, 0.05);
+  const pmtHigh = monthlyPayment(device.cost, 0.10);
+  const netLow  = Math.max(0, monthlyRevLow  - pmtHigh);
+  const netHigh = Math.max(0, monthlyRevHigh - pmtLow);
   const [pbLow, pbHigh] = device.paybackMonths;
-  const [priceLow, priceHigh] = device.priceRange;
 
   return (
     <div style={{ maxWidth:980, margin:"0 auto", padding:"64px 48px" }}>
@@ -353,38 +383,38 @@ function ROIExplorer({ device, selections, onCapture, onContact, onBack }) {
       <p style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, color:MID, marginBottom:44 }}>
         Select the treatments you're most interested in, then adjust volume and pricing to model practice performance.
       </p>
+
+      {/* Treatment selection */}
       <div style={{ marginBottom:44 }}>
         <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, letterSpacing:"0.3em", color:RED, textTransform:"uppercase", fontWeight:600, marginBottom:16 }}>
           Treatments You're Interested In <span style={{ color:MID, fontSize:9, fontWeight:400 }}>· Select all that apply</span>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(220px,1fr))", gap:8 }}>
-          {TREATMENT_OPTIONS.map(t => {
-            const active = selectedTreatments.includes(t.label);
+          {device.treatments.map(t => {
+            const active = selectedTreatments.includes(t);
+            const pr = TREATMENT_PRICES[t]||[300,700];
             return (
-              <div key={t.label} onClick={() => toggleTreatment(t.label)}
+              <div key={t} onClick={() => toggleTreatment(t)}
                 style={{ border: active ? `1px solid ${RED}` : `1px solid ${BORDER}`, background: active ? RED_DIM : FAINT, padding:"11px 14px", cursor:"pointer", transition:"all 0.18s", display:"flex", alignItems:"center", gap:10 }}>
                 <div style={{ width:13, height:13, flexShrink:0, border: active ? `2px solid ${RED}` : `2px solid rgba(255,255,255,0.25)`, borderRadius:2, background: active ? RED : "transparent", display:"flex", alignItems:"center", justifyContent:"center" }}>
                   {active && <div style={{ width:5, height:5, background:WHITE, borderRadius:1 }} />}
                 </div>
                 <div>
-                  <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:12, color: active ? WHITE : MID }}>{t.label}</div>
-                  <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.28)", marginTop:2 }}>${t.priceRange[0]}–${t.priceRange[1]} / session</div>
+                  <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:12, color: active ? WHITE : MID }}>{t}</div>
+                  <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.28)", marginTop:2 }}>{money(pr[0])}–{money(pr[1])} / session</div>
                 </div>
               </div>
             );
           })}
         </div>
-        {selectedTreatments.length > 0 && (
-          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:11, color:MID, marginTop:10 }}>
-            {selectedTreatments.length} treatment{selectedTreatments.length>1?"s":""} selected · Blended avg price set to <strong style={{ color:WHITE }}>${avgPrice}</strong>
-          </div>
-        )}
       </div>
+
       <div style={{ display:"grid", gridTemplateColumns:"1fr 340px", gap:40, alignItems:"start" }}>
         <div>
+          {/* Sliders */}
           {[
-            { label:"Patients seen per week", val:patientsPerWeek, set:v=>setPatientsPerWeek(v), min:20, max:400, step:10, display:`${patientsPerWeek}`, lo:"20", hi:"400" },
-            { label:"Estimated adoption rate", val:adoptionRate, set:v=>setAdoptionRate(v), min:1, max:15, step:1, display:`${adoptionRate}%`, lo:"1%", hi:"15%", note:"% of patients likely to book a laser treatment" },
+            { label:"Patients seen per week", val:patientsPerWeek, set:v=>setPatientsPerWeek(v), min:5, max:150, step:5, display:`${patientsPerWeek}`, lo:"5", hi:"150" },
+            { label:"Estimated adoption rate", val:adoptionRate, set:v=>setAdoptionRate(v), min:1, max:15, step:1, display:`${adoptionRate}%`, lo:"1%", hi:"15%", note:"% of patients likely to book a treatment" },
           ].map(({ label, val, set, min, max, step:st, display, lo, hi, note }) => (
             <div key={label} style={{ marginBottom:32 }}>
               <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:10 }}>
@@ -397,58 +427,82 @@ function ROIExplorer({ device, selections, onCapture, onContact, onBack }) {
               </div>
             </div>
           ))}
-          <div style={{ marginBottom:32 }}>
-            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:10 }}>
-              <label style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, letterSpacing:"0.2em", color:MID, textTransform:"uppercase" }}>
-                Average treatment price
-                {selectedTreatments.length>0 && !manualPrice && <span style={{ color:"rgba(255,255,255,0.28)", fontSize:9, letterSpacing:"0.1em" }}> · auto-set</span>}
-              </label>
-              <span style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:22, fontWeight:700, color:WHITE }}>${avgPrice}</span>
+
+          {/* Per-treatment price editors */}
+          {selectedTreatments.length > 0 && (
+            <div style={{ marginBottom:32 }}>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, letterSpacing:"0.25em", color:MID, textTransform:"uppercase", marginBottom:14 }}>Adjust Per-Treatment Pricing</div>
+              {selectedTreatments.map(t => {
+                const p = treatmentPrices[t]||{low:(TREATMENT_PRICES[t]||[300,700])[0],high:(TREATMENT_PRICES[t]||[300,700])[1]};
+                return (
+                  <div key={t} style={{ background:FAINT, border:`1px solid ${BORDER}`, padding:"14px 16px", marginBottom:10 }}>
+                    <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:12, color:WHITE, marginBottom:10 }}>{t}</div>
+                    <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
+                      <div>
+                        <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", marginBottom:6 }}>Low / session</div>
+                        <input type="number" value={p.low} onChange={e=>setTreatmentPrices(prev=>({...prev,[t]:{...prev[t],low:Math.max(1,+e.target.value)}}))}
+                          style={{ width:"100%", padding:"8px 12px", background:"rgba(0,0,0,0.4)", border:`1px solid ${BORDER}`, color:WHITE, fontSize:14, fontFamily:"'Helvetica Neue',Arial,sans-serif", boxSizing:"border-box", outline:"none" }} />
+                      </div>
+                      <div>
+                        <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", marginBottom:6 }}>High / session</div>
+                        <input type="number" value={p.high} onChange={e=>setTreatmentPrices(prev=>({...prev,[t]:{...prev[t],high:Math.max(1,+e.target.value)}}))}
+                          style={{ width:"100%", padding:"8px 12px", background:"rgba(0,0,0,0.4)", border:`1px solid ${BORDER}`, color:WHITE, fontSize:14, fontFamily:"'Helvetica Neue',Arial,sans-serif", boxSizing:"border-box", outline:"none" }} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <input type="range" min={200} max={2000} step={50} value={avgPrice}
-              onChange={e=>{ setManualPrice(true); setAvgPrice(+e.target.value); }}
-              style={{ width:"100%", accentColor:RED }} />
-            <div style={{ display:"flex", justifyContent:"space-between", fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.22)", marginTop:4 }}>
-              <span>$200</span><span>$2,000</span>
-            </div>
-          </div>
+          )}
+
+          {/* Device context — properly formatted */}
           <div style={{ background:FAINT, border:`1px solid ${BORDER}`, padding:"20px 22px" }}>
             <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, letterSpacing:"0.3em", color:MID, textTransform:"uppercase", marginBottom:14 }}>Device Context</div>
-            <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, fontWeight:600, color:OFF_WHITE, marginBottom:10, lineHeight:1.4 }}>{device.name}</div>
+            <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, fontWeight:600, color:OFF_WHITE, marginBottom:12, lineHeight:1.4 }}>{device.name}</div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
               <div>
-                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:"rgba(255,255,255,0.3)", textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:4 }}>Est. Investment Range</div>
-                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:14, color:WHITE, fontWeight:600 }}>${priceLow}K – ${priceHigh}K</div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:"rgba(255,255,255,0.3)", textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:4 }}>Est. Device Investment</div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:15, color:WHITE, fontWeight:600 }}>{money(device.cost)}</div>
               </div>
               <div>
                 <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:"rgba(255,255,255,0.3)", textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:4 }}>Typical Payback Window</div>
-                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:14, color:WHITE, fontWeight:600 }}>{pbLow}–{pbHigh} months</div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:15, color:WHITE, fontWeight:600 }}>{pbLow}–{pbHigh} months</div>
+              </div>
+              <div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:"rgba(255,255,255,0.3)", textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:4 }}>Monthly Payment (60mo)</div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:15, color:WHITE, fontWeight:600 }}>{money(pmtLow)} – {money(pmtHigh)}</div>
+                <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.3)", marginTop:2 }}>5–10% interest rate range</div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Output card */}
         <div style={{ background:`linear-gradient(160deg, rgba(232,25,44,0.1) 0%, rgba(10,10,10,0.5) 60%)`, border:`1px solid ${RED_BORDER}`, padding:"32px" }}>
           <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, letterSpacing:"0.3em", color:RED, textTransform:"uppercase", fontWeight:600, marginBottom:20 }}>Estimated Monthly Revenue</div>
-          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:52, fontWeight:700, color:WHITE, letterSpacing:"-0.03em", lineHeight:1, marginBottom:6 }}>${monthlyRev.toLocaleString()}</div>
-          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", letterSpacing:"0.15em", marginBottom:24 }}>per month from laser treatments</div>
-          <div style={{ height:1, background:`rgba(232,25,44,0.25)`, marginBottom:24 }} />
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:24 }}>
+          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:38, fontWeight:700, color:WHITE, letterSpacing:"-0.02em", lineHeight:1, marginBottom:4 }}>{money(monthlyRevLow)}</div>
+          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:22, fontWeight:700, color:"rgba(255,255,255,0.5)", marginBottom:20 }}>– {money(monthlyRevHigh)}</div>
+
+          <div style={{ height:1, background:`rgba(232,25,44,0.25)`, marginBottom:20 }} />
+
+          <div style={{ display:"grid", gap:16, marginBottom:20 }}>
             <div>
-              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:20, fontWeight:700, color:WHITE }}>${annualRev.toLocaleString()}</div>
-              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", letterSpacing:"0.1em", marginTop:4 }}>Annual projection</div>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:4 }}>Annual projection</div>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:18, fontWeight:700, color:WHITE }}>{money(monthlyRevLow*12)} – {money(monthlyRevHigh*12)}</div>
             </div>
             <div>
-              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:20, fontWeight:700, color:WHITE }}>{monthlyPatients}</div>
-              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", letterSpacing:"0.1em", marginTop:4 }}>Patients / month</div>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:MID, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:4 }}>Est. Net Revenue / Month</div>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:18, fontWeight:700, color:"#4ade80" }}>{money(netLow)} – {money(netHigh)}</div>
+              <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.3)", marginTop:2 }}>After estimated monthly payment</div>
             </div>
           </div>
-          <div style={{ height:1, background:BORDER, marginBottom:20 }} />
-          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, color:"rgba(255,255,255,0.58)", lineHeight:1.7, marginBottom:20 }}>
-            At this revenue level, directional payback falls within <span style={{ color:WHITE, fontWeight:600 }}>{pbLow}–{pbHigh} months</span>, consistent with comparable Fotona practices at similar volume.
-          </div>
-          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.28)", lineHeight:1.6, fontStyle:"italic", borderTop:`1px solid ${BORDER}`, paddingTop:14, marginBottom:24 }}>
+
+          <div style={{ height:1, background:BORDER, marginBottom:16 }} />
+
+          <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:10, color:"rgba(255,255,255,0.28)", lineHeight:1.6, fontStyle:"italic", marginBottom:24 }}>
             Estimates are directional and based on user inputs. Final pricing, financing, and practice results may vary.
           </div>
+
           <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
             <button onClick={onCapture} style={redBtn({ padding:"12px", fontSize:11, textAlign:"center" })}>Get My Custom Plan →</button>
             <button onClick={onContact} style={outlineBtn({ padding:"11px", fontSize:11, textAlign:"center" })}>Talk to a Specialist</button>
@@ -556,17 +610,17 @@ function RepHandoff({ device, selections, lead, onReset }) {
           </div>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:24 }}>
-          {[["Practice Type",selections.practiceType],["Recommended Device",device.name.replace("Fotona ","")],["Top Growth Goal",(selections.growthGoals||[])[0]],["Main Barrier",(selections.barriers||[])[0]],["Business Stage",selections.stage],["Email",lead.email]].map(([k,v])=>v&&(
+          {[["Practice Type",selections.practiceType],["Recommended Device",device.name],["Top Growth Goal",(selections.growthGoals||[])[0]],["Main Barrier",(selections.barriers||[])[0]],["Business Stage",selections.stage],["Email",lead.email]].map(([k,v])=>v&&(
             <div key={k} style={{ borderBottom:`1px solid ${BORDER}`, paddingBottom:14 }}>
               <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, color:"rgba(255,255,255,0.3)", textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:5 }}>{k}</div>
               <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, color:OFF_WHITE }}>{v}</div>
             </div>
           ))}
         </div>
-        <div style={{ background:`linear-gradient(135deg, rgba(232,25,44,0.08) 0%, rgba(10,10,10,0) 70%)`, border:`1px solid rgba(232,25,44,0.2)`, padding:"20px 24px", marginBottom:lead.notes?20:0 }}>
+        <div style={{ background:`linear-gradient(135deg, rgba(232,25,44,0.08) 0%, rgba(10,10,10,0) 70%)`, border:`1px solid rgba(232,25,44,0.2)`, padding:"20px 24px" }}>
           <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:9, letterSpacing:"0.25em", color:RED, textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>ROI Snapshot — Passed to Rep</div>
           <div style={{ fontFamily:"'Helvetica Neue',Arial,sans-serif", fontSize:13, color:"rgba(255,255,255,0.62)", lineHeight:1.7 }}>
-            Buyer modeled estimated monthly laser revenue potential based on their patient volume and adoption assumptions. Directional payback window: <strong style={{ color:WHITE }}>{device.paybackMonths[0]}–{device.paybackMonths[1]} months</strong>. Rep should validate assumptions and build a custom financial model in the first call.
+            Buyer modeled estimated monthly laser revenue potential based on their patient volume and adoption assumptions. Device investment: <strong style={{ color:WHITE }}>{money(device.cost)}</strong>. Directional payback window: <strong style={{ color:WHITE }}>{device.paybackMonths[0]}–{device.paybackMonths[1]} months</strong>. Rep should validate assumptions and build a custom financial model in the first call.
           </div>
         </div>
         {lead.notes && (
